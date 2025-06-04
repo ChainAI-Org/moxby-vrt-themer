@@ -1,0 +1,143 @@
+/* Input Component Styles */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.input-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.input-required {
+  color: var(--color-error-500);
+  font-size: var(--font-size-sm);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-sans);
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+  min-height: 44px; /* Minimum touch target */
+
+  /* Themeable properties */
+  --input-focus-shadow-color: var(--color-primary-100);
+  --input-error-focus-shadow-color: var(--color-error-100);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px var(--input-focus-shadow-color);
+}
+
+[data-mode="dark"] .input {
+  --input-focus-shadow-color: var(--color-primary-900);
+  --input-error-focus-shadow-color: var(--color-error-900); /* For dark theme error focus */
+}
+/* [data-theme="dark"] .input:focus rule is now covered by the variable override */
+
+.input:hover:not(.input--disabled):not(:focus) {
+  border-color: var(--border-secondary);
+}
+
+/* Error State */
+.input--error {
+  border-color: var(--color-error-500);
+}
+
+.input--error:focus {
+  border-color: var(--color-error-500);
+  box-shadow: 0 0 0 3px var(--input-error-focus-shadow-color);
+}
+
+/* [data-theme="dark"] .input--error:focus rule is now covered by the variable override in [data-theme="dark"] .input */
+
+/* Disabled State */
+.input--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--bg-secondary);
+}
+
+.input--disabled::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Error Message */
+.input-error {
+  font-size: var(--font-size-sm);
+  color: var(--color-error-600);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+[data-mode="dark"] .input-error {
+  color: var(--color-error-400);
+}
+
+/* Input with icon support (for future enhancement) */
+.input-group--with-icon {
+  position: relative;
+}
+
+.input-group--with-icon .input {
+  padding-left: var(--space-10);
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+/* Floating label variant (for future enhancement) */
+.input-group--floating {
+  position: relative;
+}
+
+.input-group--floating .input-label {
+  position: absolute;
+  left: var(--space-4);
+  top: var(--space-3);
+  background: var(--surface-primary);
+  padding: 0 var(--space-1);
+  transition: all var(--transition-fast);
+  pointer-events: none;
+}
+
+.input-group--floating .input:focus + .input-label,
+.input-group--floating .input:not(:placeholder-shown) + .input-label {
+  top: -8px;
+  font-size: var(--font-size-xs);
+  color: var(--color-primary-600);
+}
+
+/* Dark theme adjustments */
+[data-mode="dark"] .input {
+  background: var(--surface-primary);
+  border-color: var(--border-primary);
+}
+
+[data-mode="dark"] .input--disabled {
+  background: var(--bg-secondary);
+}

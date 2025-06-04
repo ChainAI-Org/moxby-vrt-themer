@@ -1,0 +1,661 @@
+/* Design Tokens - CSS Custom Properties */
+:root {
+  /* Colors - Primary */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+
+  /* Colors - Secondary */
+  --color-secondary-50: #faf5ff;
+  --color-secondary-100: #f3e8ff;
+  --color-secondary-200: #e9d5ff;
+  --color-secondary-300: #d8b4fe;
+  --color-secondary-400: #c084fc;
+  --color-secondary-500: #a855f7;
+  --color-secondary-600: #9333ea;
+  --color-secondary-700: #7c3aed;
+  --color-secondary-800: #6b21a8;
+  --color-secondary-900: #581c87;
+
+  /* Colors - Neutrals */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  /* Colors - Feedback */
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+
+  /* Spacing - 8-point grid */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Typography */
+  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-normal: 250ms ease-out;
+  --transition-slow: 350ms ease-out;
+
+  /* Surface Effects (placeholders for theme overrides) */
+  --surface-backdrop-blur: 0px; /* e.g. for Glassmorphism */
+
+  /* Breakpoints (for reference in JS) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* Light Theme (default) */
+:root {
+  --bg-primary: var(--color-neutral-50);
+  --bg-secondary: var(--color-neutral-100);
+  --bg-tertiary: var(--color-neutral-200);
+  
+  --text-primary: var(--color-neutral-900);
+  --text-secondary: var(--color-neutral-700);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--color-neutral-200);
+  --border-secondary: var(--color-neutral-300);
+  
+  --surface-primary: #ffffff;
+  --surface-secondary: var(--color-neutral-50);
+  --surface-elevated: #ffffff;
+}
+
+/* Base Dark Mode Styles (applies when data-mode="dark") */
+[data-mode="dark"] {
+  --bg-primary: var(--color-neutral-900);
+  --bg-secondary: var(--color-neutral-800);
+  --bg-tertiary: var(--color-neutral-700);
+  
+  --text-primary: var(--color-neutral-50);
+  --text-secondary: var(--color-neutral-300);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--color-neutral-700);
+  --border-secondary: var(--color-neutral-600);
+  
+  --surface-primary: var(--color-neutral-800);
+  --surface-secondary: var(--color-neutral-900);
+  --surface-elevated: var(--color-neutral-700);
+}
+
+/* ==========================================================================
+   Aesthetic Theme Overrides
+   ========================================================================== */
+
+/* Base Logo Variables (can be overridden by themes) */
+:root {
+  --logo-bg-gradient-start: var(--color-primary-600);
+  --logo-bg-gradient-end: var(--color-secondary-600);
+  --logo-shape-fill: white;
+  --logo-shape-opacity: 0.9;
+  --logo-inner-shape-gradient-start: var(--color-warning-500);
+  --logo-inner-shape-gradient-end: var(--color-error-500);
+  
+  --logo-text-gradient-start: var(--color-primary-600);
+  --logo-text-gradient-end: var(--color-secondary-600);
+
+  /* For monochrome logo version - themes can switch to these */
+  --logo-monochrome-bg: var(--text-primary); /* Example: use text color for bg */
+  --logo-monochrome-fill: var(--bg-primary); /* Example: use bg color for fill */
+  --logo-monochrome-text-color: var(--text-primary);
+}
+
+
+/* Glassmorphic Theme (Default) */
+/* Light Variant */
+[data-theme-name="glassmorphic"][data-mode="light"],
+[data-theme-name="glassmorphic"]:not([data-mode="dark"]) { /* Fallback if data-mode="light" is not explicitly set */
+  /* Base colors from :root (light theme) are the starting point */
+  --bg-primary: linear-gradient(
+    120deg,
+    hsla(200, 100%, 90%, 0.7), /* Light Blueish */
+    hsla(260, 100%, 92%, 0.6), /* Light Lavenderish */
+    hsla(320, 100%, 94%, 0.7), /* Light Pinkish */
+    hsla(260, 100%, 92%, 0.6),
+    hsla(200, 100%, 90%, 0.7)
+  );
+  background-size: 300% 300%; /* Make gradient larger than viewport for smooth animation */
+  animation: subtleGradientShift 25s ease infinite;
+  --primary-color: var(--color-primary-600); /* Added for button */
+  --bg-secondary: linear-gradient(135deg, var(--color-neutral-100) 0%, var(--color-neutral-200) 100%); /* Background for sections like Features */
+  --text-primary: var(--color-neutral-900);
+
+  h1 { /* H1 gradient for Glassmorphic Light */
+    background-image: linear-gradient(to right, var(--color-primary-700), var(--color-secondary-700));
+  }
+  --text-secondary: var(--color-neutral-700); /* Increased contrast for light glassmorphic */
+  
+  /* Glassmorphic surfaces */
+  --surface-primary: rgba(255, 255, 255, 0.55); /* Main card/modal background - slightly more transparent */
+  --surface-secondary: rgba(255, 255, 255, 0.45); /* Slightly more transparent */
+  --surface-elevated: rgba(255, 255, 255, 0.65); /* Slightly more transparent */
+  --surface-backdrop-blur: 12px;
+
+  --border-primary: rgba(0, 0, 0, 0.1); /* Subtle border for edges */
+  --border-secondary: rgba(0, 0, 0, 0.05);
+
+  /* Shadows might need to be adjusted for glass effect */
+  --shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 10px 0 rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 20px 0 rgba(0,0,0,0.07);
+  --shadow-xl: 0 20px 40px 0 rgba(0,0,0,0.07);
+  --surface-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6); /* Inner shadow for light glass */
+
+  /* Logo: Uses primary colored version by default (defined in :root) */
+  /* Ensure logo text has good contrast if its background becomes complex */
+  --logo-text-gradient-start: var(--color-primary-700); /* Darker for light theme */
+  --logo-text-gradient-end: var(--color-secondary-700);
+}
+
+/* Dark Variant */
+[data-theme-name="glassmorphic"][data-mode="dark"] {
+  /* Base colors from [data-mode="dark"] are the starting point */
+  --bg-primary: linear-gradient(160deg,
+    hsla(220, 60%, 15%, 1) 0%,    /* Deepest Blue/Indigo */
+    hsla(260, 60%, 30%, 0.9) 25%, /* Vibrant Purple */
+    hsla(190, 70%, 40%, 0.8) 50%, /* Electric Teal/Blue */
+    hsla(300, 60%, 35%, 0.9) 75%, /* Deep Magenta/Pink */
+    hsla(220, 60%, 15%, 1) 100%   /* Deepest Blue/Indigo */
+  );
+  background-size: 400% 400%; /* Larger size for smoother animation */
+  animation: subtleGradientShift 40s ease infinite alternate; /* Slower, alternating animation */
+  --primary-color: var(--color-primary-500); /* Added for button */
+  --text-primary: var(--color-neutral-100);
+  --text-secondary: var(--color-neutral-300);
+
+  h1 { /* H1 gradient for Glassmorphic Dark */
+    background-image: linear-gradient(to right, var(--color-primary-400), var(--color-secondary-400));
+  }
+
+  /* Glassmorphic surfaces */
+  --surface-primary: rgba(30, 30, 45, 0.65); /* Dark, slightly transparent */
+  --surface-secondary: rgba(30, 30, 45, 0.5);
+  --surface-elevated: rgba(40, 40, 55, 0.75);
+  --surface-backdrop-blur: 12px;
+
+  --border-primary: rgba(255, 255, 255, 0.1); /* Subtle light border for edges */
+  --border-secondary: rgba(255, 255, 255, 0.05);
+
+  /* Shadows might need to be adjusted for glass effect */
+  --shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 10px 0 rgba(0,0,0,0.15);
+  --shadow-lg: 0 10px 20px 0 rgba(0,0,0,0.15);
+  --shadow-xl: 0 20px 40px 0 rgba(0,0,0,0.15);
+  --surface-inner-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Inner shadow for dark glass */
+  
+  /* Logo: Uses primary colored version by default (defined in :root),
+     but let's ensure its colors are vibrant enough for dark glass.
+     The default logo colors should work well. If a monochrome is preferred,
+     uncomment the lines below and ensure the variables are correctly defined.
+  */
+  /* --logo-bg-gradient-start: var(--logo-monochrome-bg); */
+  /* --logo-bg-gradient-end: var(--logo-monochrome-bg); */
+  /* --logo-shape-fill: var(--logo-monochrome-fill); */
+  /* --logo-inner-shape-gradient-start: var(--logo-monochrome-fill); */
+  /* --logo-inner-shape-gradient-end: var(--logo-monochrome-fill); */
+  /* --logo-text-gradient-start: var(--logo-monochrome-text-color); */
+  /* --logo-text-gradient-end: var(--logo-monochrome-text-color); */
+  
+  /* For dark theme, let's make logo text lighter if using default color logo */
+   --logo-text-gradient-start: var(--color-primary-400); /* Adjusted for dark glassmorphic */
+   --logo-text-gradient-end: var(--color-secondary-400); /* Adjusted for dark glassmorphic */
+}
+
+/* Tech-focused Theme */
+/* Light Variant */
+[data-theme-name="tech-focused"][data-mode="light"],
+[data-theme-name="tech-focused"]:not([data-mode="dark"]) {
+  /* Custom Tech Colors - Light */
+  --tech-primary-accent-light: var(--color-primary-600); /* Vibrant Blue */
+  --tech-secondary-accent-light: var(--color-primary-400); /* Lighter, complementary blue */
+  --tech-bg-light-start: #F8F9FA; /* Very light gray, almost white */
+  --tech-bg-light-mid: #EFF2F5;
+  --tech-bg-light-end: #E9ECEF;
+  --tech-surface-light: #FFFFFF; /* Pure white for surfaces */
+  --tech-border-light: var(--color-neutral-300); /* Subtle borders */
+  --tech-border-accent-light: var(--tech-primary-accent-light);
+  --tech-text-primary-light: #212529; /* Dark gray for primary text */
+  --tech-text-secondary-light: var(--color-neutral-600);
+  /* --tech-subtle-pattern-url-light: none; */ /* Commenting out pattern variable */
+
+  /* Overrides for tech-focused light */
+  --primary-color: var(--tech-primary-accent-light);
+  --secondary-color: var(--tech-secondary-accent-light);
+
+  h1 { /* H1 gradient for Tech Light */
+    background-image: linear-gradient(to right, var(--tech-primary-accent-light), var(--tech-secondary-accent-light));
+  }
+
+  --bg-primary: linear-gradient(135deg, var(--tech-bg-light-start) 0%, var(--color-primary-100) 40%, var(--color-secondary-100) 70%, var(--tech-bg-light-end) 100%);
+  --bg-secondary: linear-gradient(145deg, var(--color-neutral-100) 0%, var(--color-neutral-200) 100%);
+  --bg-tertiary: var(--color-neutral-200);
+  /* --bg-pattern: var(--tech-subtle-pattern-url-light); */
+  
+  --text-primary: var(--tech-text-primary-light);
+  --text-secondary: var(--tech-text-secondary-light);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--tech-border-light);
+  --border-secondary: var(--color-neutral-200);
+  
+  --surface-primary: var(--tech-surface-light);
+  --surface-secondary: var(--color-neutral-50); /* Slightly off-white for secondary surfaces */
+  --surface-elevated: var(--tech-surface-light);
+
+  --radius-sm: 0.125rem; /* 2px - sharper corners */
+  --radius-md: 0.25rem;  /* 4px */
+  --radius-lg: 0.375rem; /* 6px */
+
+  --shadow-sm: 0 1px 2px 0 rgba(33, 37, 41, 0.05); /* Softer, more modern shadows */
+  --shadow-md: 0 3px 6px -1px rgba(33, 37, 41, 0.07), 0 2px 4px -2px rgba(33, 37, 41, 0.04);
+  --shadow-lg: 0 8px 16px -3px rgba(33, 37, 41, 0.07), 0 3px 6px -4px rgba(33, 37, 41, 0.04);
+  --shadow-xl: 0 15px 30px -5px rgba(33, 37, 41, 0.07), 0 6px 12px -6px rgba(33, 37, 41, 0.04);
+
+  --surface-backdrop-blur: 0px;
+
+  /* Logo: Use primary colored logo */
+  --logo-text-gradient-start: var(--tech-primary-accent-light);
+  --logo-text-gradient-end: var(--tech-secondary-accent-light);
+  --logo-bg-gradient-start: var(--tech-primary-accent-light);
+  --logo-bg-gradient-end: var(--tech-secondary-accent-light);
+  --logo-shape-fill: var(--tech-surface-light);
+  --logo-inner-shape-gradient-start: var(--color-primary-400);
+  --logo-inner-shape-gradient-end: var(--color-primary-500);
+}
+/* Dark Variant */
+[data-theme-name="tech-focused"][data-mode="dark"] {
+  /* Custom Tech Colors - Dark */
+  --tech-cyan-glow: #00F0FF; /* #64FFDA is good, trying a slightly different cyan */
+  --tech-purple-accent: #9E5EFF; /* Adding a secondary accent */
+  --tech-blue-deep-start: #0A192F;
+  --tech-blue-deep-mid: #081424;
+  --tech-blue-deep-end: #050E1A;
+  --tech-blue-surface: #102A4C;
+  --tech-blue-elevated: #1A3B6C;
+  --tech-text-primary-dark: #E0E0E0;
+  --tech-text-secondary-dark: #A0A0A0;
+  --tech-border-dark: #2A4A7C;
+  --tech-border-accent-dark: var(--tech-cyan-glow);
+  /* --tech-subtle-pattern-url-dark: none; */ /* Commenting out pattern variable */
+                                     
+  /* Overrides for tech-focused dark */
+  --primary-color: var(--tech-cyan-glow);
+  --secondary-color: var(--tech-purple-accent);
+
+  --bg-primary: var(--tech-grid-pattern-url) repeat center/50px 50px, radial-gradient(ellipse at 90% 10%, hsla(184, 100%, 50%, 0.25) 0%, transparent 50%), radial-gradient(ellipse at 10% 90%, hsla(261, 100%, 68%, 0.2) 0%, transparent 50%), var(--tech-blue-deep-end);
+  --bg-secondary: linear-gradient(180deg, #071323 0%, #0A192F 100%); /* Darker section background */
+  --bg-tertiary: var(--tech-blue-surface);
+  /* --bg-pattern: var(--tech-subtle-pattern-url-dark); */
+  
+  --text-primary: var(--tech-text-primary-dark);
+  --text-secondary: var(--tech-text-secondary-dark);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--tech-border-dark);
+  --border-secondary: #203A59;
+  
+  --surface-primary: var(--tech-blue-surface);
+  --surface-secondary: #0D213B;
+  --surface-elevated: var(--tech-blue-elevated);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  --shadow-sm: 0 2px 4px 0 rgba(0,0,0,0.2), 0 0 2px 0 var(--tech-cyan-glow);
+  --shadow-md: 0 5px 10px -1px rgba(0,0,0,0.25), 0 0 5px 0 var(--tech-cyan-glow);
+  --shadow-lg: 0 12px 24px -3px rgba(0,0,0,0.25), 0 0 8px 0 var(--tech-cyan-glow);
+  --shadow-xl: 0 22px 45px -5px rgba(0,0,0,0.25), 0 0 12px 0 var(--tech-cyan-glow);
+
+  --surface-backdrop-blur: 0px;
+
+  /* Logo: Use monochrome (light/cyan) or vibrant primary */
+  --logo-text-gradient-start: var(--tech-cyan-glow);
+  --logo-text-gradient-end: var(--tech-purple-accent);
+  --logo-bg-gradient-start: transparent;
+  --logo-bg-gradient-end: transparent;
+  --logo-shape-fill: var(--tech-cyan-glow);
+  --logo-inner-shape-gradient-start: var(--tech-purple-accent);
+  --logo-inner-shape-gradient-end: var(--color-primary-300);
+
+  /* H1 Gradient Text Override for Tech Dark */
+  /* These override the variables used by .from-blue-600 and .to-purple-600 utility classes */
+  --tw-gradient-from: var(--tech-cyan-glow);
+  --tw-gradient-to: var(--tech-purple-accent);
+
+  /* Subtle Grid Pattern for entire background */
+  --tech-grid-pattern-url: url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 50 0 L 0 0 0 50' fill='none' stroke='hsla(184, 100%25, 50%25, 0.15)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='50' height='50' fill='url(%23grid)'/%3E%3C/svg%3E");
+  /* --hero-section-background variable removed as grid is now part of --bg-primary */
+
+  /* Directly style H1 for this theme's gradient */
+  h1 {
+    background-image: linear-gradient(to right, var(--tech-cyan-glow), var(--tech-purple-accent));
+  }
+}
+
+
+/* Bold/Vibrant Theme */
+/* Light Variant */
+[data-theme-name="bold-vibrant"][data-mode="light"],
+[data-theme-name="bold-vibrant"]:not([data-mode="dark"]) {
+  /* Custom Bold/Vibrant Colors - Light */
+  --bv-primary-accent-light: #F50057; /* Punchy Hot Pink */
+  --bv-secondary-accent-light: #FFC107; /* Sunny Orange/Yellow */
+  --bv-bg-light-start: #FFF7F5; /* Light warm tone start */
+  --bv-bg-light-mid: #FFF0F8;  /* Light warm tone mid */
+  --bv-bg-light-end: #FFE8F0;   /* Light warm tone end */
+  --bv-surface-light: #FFFFFF;
+  --bv-text-primary-light: var(--color-neutral-900); /* Darker for more pop */
+  --bv-text-secondary-light: var(--color-neutral-700);
+  --bv-border-light: var(--color-neutral-200);
+
+  /* Overrides for bold/vibrant light */
+  --primary-color: var(--bv-primary-accent-light);
+  --secondary-color: var(--bv-secondary-accent-light);
+
+  /* H1 Gradient Text Override */
+  --tw-gradient-from: var(--bv-primary-accent-light);
+  --tw-gradient-to: var(--bv-secondary-accent-light);
+
+  --heading-font-weight: var(--font-weight-bold); /* Bolder headings */
+  --font-family-body: 'Poppins', var(--font-family-sans);
+  --font-family-headings: 'Poppins', var(--font-family-sans);
+
+  /* Directly style H1 for this theme's gradient */
+  h1 {
+    background-image: linear-gradient(to right, var(--bv-primary-accent-light), var(--bv-secondary-accent-light));
+  }
+
+  --bg-primary: linear-gradient(135deg, var(--bv-bg-light-start) 0%, var(--bv-bg-light-mid) 50%, var(--bv-bg-light-end) 100%);
+  --bg-secondary: #FFFFFF; /* Brighter white for sections */
+  --bg-tertiary: var(--color-neutral-50);
+  
+  --text-primary: var(--bv-text-primary-light);
+  --text-secondary: var(--bv-text-secondary-light);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--bv-border-light);
+  --border-secondary: var(--color-neutral-300);
+  
+  --surface-primary: var(--bv-surface-light);
+  --surface-secondary: #FAF7F5; /* Slightly warmer off-white */
+  --surface-elevated: var(--bv-surface-light);
+
+  --radius-md: 0.625rem; /* 10px - slightly more rounded */
+  --radius-lg: 1rem;    /* 16px */
+
+  /* Stronger Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 6px 12px -2px rgba(0,0,0,0.12), 0 3px 7px -3px rgba(0,0,0,0.1);
+  --shadow-lg: 0 15px 25px -5px rgba(0,0,0,0.12), 0 10px 15px -6px rgba(0,0,0,0.1);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.15);
+
+
+  /* Logo: Use vibrant colors */
+  --logo-text-gradient-start: var(--bv-primary-accent-light);
+  --logo-text-gradient-end: var(--bv-secondary-accent-light);
+  --logo-bg-gradient-start: var(--bv-primary-accent-light);
+  --logo-bg-gradient-end: var(--bv-secondary-accent-light);
+  --logo-shape-fill: #FFFFFF;
+  --logo-inner-shape-gradient-start: var(--bv-secondary-accent-light);
+  --logo-inner-shape-gradient-end: #FFA500; /* Bright Orange */
+}
+/* Dark Variant */
+[data-theme-name="bold-vibrant"][data-mode="dark"] {
+  /* Custom Bold/Vibrant Colors - Dark */
+  --bv-primary-accent-dark: #FF00FF; /* Electric Magenta */
+  --bv-secondary-accent-dark: #00FFFF; /* Electric Cyan/Teal */
+  --bv-bg-dark-start: hsla(270, 80%, 25%, 1); /* Dark Vibrant Purple */
+  --bv-bg-dark-mid: hsla(300, 90%, 35%, 1);   /* Vibrant Magenta */
+  --bv-bg-dark-end: hsla(30, 100%, 45%, 1);    /* Bright Orange/Red */
+  --bv-surface-dark: #220022; /* Very dark magenta for surfaces */
+  --bv-text-primary-dark: #FFFFFF;
+  --bv-text-secondary-dark: var(--color-neutral-200); /* Lighter secondary text */
+  --bv-border-dark: hsla(300, 90%, 50%, 0.7); /* Magenta border */
+
+  /* Overrides for bold/vibrant dark */
+  --primary-color: var(--bv-primary-accent-dark);
+  --secondary-color: var(--bv-secondary-accent-dark);
+
+  /* H1 Gradient Text Override */
+  --tw-gradient-from: hsla(180, 100%, 80%, 1); /* Very Light Cyan for H1 */
+  --tw-gradient-to: hsla(320, 100%, 75%, 1);   /* Bright Pink for H1 */
+
+  --heading-font-weight: var(--font-weight-bold); /* Bolder headings */
+  --font-family-body: 'Poppins', var(--font-family-sans);
+  --font-family-headings: 'Poppins', var(--font-family-sans);
+
+  /* Directly style H1 for this theme's gradient */
+  h1 {
+    background-image: linear-gradient(to right, hsla(180, 100%, 80%, 1), hsla(320, 100%, 75%, 1));
+  }
+
+  --bg-primary: linear-gradient(145deg, var(--bv-bg-dark-start) 0%, var(--bv-bg-dark-mid) 50%, var(--bv-bg-dark-end) 100%);
+  --bg-secondary: #1a001a; /* Darker magenta for sections */
+  --bg-tertiary: var(--bv-surface-dark);
+  
+  --text-primary: var(--bv-text-primary-dark);
+  --text-secondary: var(--bv-text-secondary-dark);
+  --text-tertiary: var(--color-neutral-400);
+  
+  --border-primary: var(--bv-border-dark);
+  --border-secondary: #4A004A;
+  
+  --surface-primary: var(--bv-surface-dark);
+  --surface-secondary: #250025;
+  --surface-elevated: #3D0A3D;
+
+  --radius-md: 0.625rem; /* 10px */
+  --radius-lg: 1rem;    /* 16px */
+
+  /* Stronger, potentially colored Shadows */
+  --shadow-sm: 0 2px 5px hsla(var(--bv-primary-accent-dark-hsl, 300, 100%, 50%), 0.2);
+  --shadow-md: 0 8px 15px -3px hsla(var(--bv-primary-accent-dark-hsl, 300, 100%, 50%), 0.25), 0 4px 8px -3px hsla(var(--bv-primary-accent-dark-hsl, 300, 100%, 50%), 0.2);
+  --shadow-lg: 0 18px 30px -8px hsla(var(--bv-secondary-accent-dark-hsl, 180, 100%, 50%), 0.25), 0 12px 20px -8px hsla(var(--bv-secondary-accent-dark-hsl, 180, 100%, 50%), 0.2);
+  --shadow-xl: 0 30px 60px -15px hsla(var(--bv-primary-accent-dark-hsl, 300, 100%, 50%), 0.2);
+
+
+  /* Logo: Use bright monochrome or vibrant colors */
+  --logo-text-gradient-start: var(--bv-primary-accent-dark);
+  --logo-text-gradient-end: var(--bv-secondary-accent-dark);
+  --logo-bg-gradient-start: transparent;
+  --logo-bg-gradient-end: transparent;
+  --logo-shape-fill: var(--bv-primary-accent-dark);
+  --logo-inner-shape-gradient-start: var(--bv-secondary-accent-dark);
+  --logo-inner-shape-gradient-end: #FFD700; /* Gold */
+}
+
+
+/* Corporate/Professional Theme */
+/* Light Variant */
+[data-theme-name="corporate-professional"][data-mode="light"],
+[data-theme-name="corporate-professional"]:not([data-mode="dark"]) {
+  /* Custom Corporate Colors - Light */
+  --cp-primary-accent-light: var(--color-primary-700); /* Classic Blue */
+  --cp-secondary-accent-light: var(--color-neutral-500); /* Medium Gray */
+  --cp-bg-light: #FFFFFF;
+  --cp-surface-light: var(--color-neutral-50); /* Very light gray for surfaces */
+  --cp-text-primary-light: var(--color-neutral-900); /* Almost black for high contrast */
+  --cp-text-secondary-light: var(--color-neutral-700);
+  --cp-border-light: var(--color-neutral-300);
+
+  /* Overrides for corporate/professional light */
+  --primary-color: var(--cp-primary-accent-light);
+  --secondary-color: var(--cp-secondary-accent-light);
+
+  --bg-primary: var(--cp-bg-light);
+  --bg-secondary: var(--color-neutral-100); /* Light gray for secondary sections */
+  --bg-tertiary: var(--color-neutral-200);
+  
+  --text-primary: var(--cp-text-primary-light);
+  --text-secondary: var(--cp-text-secondary-light);
+  --text-tertiary: var(--color-neutral-600);
+  
+  --border-primary: var(--cp-border-light);
+  --border-secondary: var(--color-neutral-400);
+  
+  --surface-primary: var(--cp-surface-light);
+  --surface-secondary: var(--cp-bg-light);
+  --surface-elevated: var(--cp-bg-light);
+
+  --radius-sm: 0.125rem; /* 2px - sharper */
+  --radius-md: 0.25rem;  /* 4px */
+  --radius-lg: 0.375rem; /* 6px */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04); /* Very subtle shadows */
+  --shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 5px 10px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+
+  /* Logo: Primary color or monochrome */
+  --logo-text-gradient-start: var(--cp-primary-accent-light);
+  --logo-text-gradient-end: var(--color-primary-800);
+  --logo-bg-gradient-start: var(--cp-primary-accent-light);
+  --logo-bg-gradient-end: var(--color-primary-800);
+  --logo-shape-fill: #FFFFFF;
+  --logo-inner-shape-gradient-start: var(--color-primary-500);
+  --logo-inner-shape-gradient-end: var(--color-primary-600);
+
+  h1 { /* H1 gradient for Corporate Light */
+    background-image: linear-gradient(to right, var(--cp-primary-accent-light), var(--color-primary-800));
+  }
+}
+/* Dark Variant */
+[data-theme-name="corporate-professional"][data-mode="dark"] {
+  /* Custom Corporate Colors - Dark */
+  --cp-primary-accent-dark: var(--color-primary-500); /* Brighter Blue for dark mode */
+  --cp-secondary-accent-dark: var(--color-neutral-400); /* Lighter Gray */
+  --cp-bg-dark: #1A202C; /* Deep Navy/Charcoal */
+  --cp-surface-dark: #2D3748; /* Slightly lighter surface */
+  --cp-text-primary-dark: var(--color-neutral-100);
+  --cp-text-secondary-dark: var(--color-neutral-300);
+  --cp-border-dark: var(--color-neutral-700);
+
+  /* Overrides for corporate/professional dark */
+  --primary-color: var(--cp-primary-accent-dark);
+  --secondary-color: var(--cp-secondary-accent-dark);
+
+  --bg-primary: var(--cp-bg-dark);
+  --bg-secondary: #121822; /* Even darker for secondary sections */
+  --bg-tertiary: var(--cp-surface-dark);
+  
+  --text-primary: var(--cp-text-primary-dark);
+  --text-secondary: var(--cp-text-secondary-dark);
+  --text-tertiary: var(--color-neutral-500);
+  
+  --border-primary: var(--cp-border-dark);
+  --border-secondary: var(--color-neutral-600);
+  
+  --surface-primary: var(--cp-surface-dark);
+  --surface-secondary: #202A3C;
+  --surface-elevated: #354258;
+
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-md: 0.25rem;  /* 4px */
+  --radius-lg: 0.375rem; /* 6px */
+
+  --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.15);
+  --shadow-md: 0 3px 6px -1px rgba(0,0,0,0.2), 0 2px 4px -2px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 16px -3px rgba(0,0,0,0.2), 0 4px 8px -4px rgba(0,0,0,0.15);
+
+  /* Logo: Monochrome (light text/fill on dark bg) or primary accent */
+  --logo-text-gradient-start: var(--cp-primary-accent-dark);
+  --logo-text-gradient-end: var(--color-primary-300);
+  --logo-bg-gradient-start: transparent;
+  --logo-bg-gradient-end: transparent;
+  --logo-shape-fill: var(--cp-primary-accent-dark);
+  --logo-inner-shape-gradient-start: var(--color-primary-300);
+  --logo-inner-shape-gradient-end: var(--color-primary-400);
+
+  /* Alternative: True monochrome logo for corporate dark */
+  /* --logo-text-gradient-start: var(--logo-monochrome-text-color); */
+  /* --logo-text-gradient-end: var(--logo-monochrome-text-color); */
+  /* --logo-bg-gradient-start: var(--logo-monochrome-bg); */
+  /* --logo-bg-gradient-end: var(--logo-monochrome-bg); */
+  /* --logo-shape-fill: var(--logo-monochrome-fill); */
+  /* --logo-inner-shape-gradient-start: var(--logo-monochrome-fill); */
+  /* --logo-inner-shape-gradient-end: var(--logo-monochrome-fill); */
+
+  h1 { /* H1 gradient for Corporate Dark */
+    background-image: linear-gradient(to right, var(--cp-primary-accent-dark), var(--color-primary-300));
+  }
+}

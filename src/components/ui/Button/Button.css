@@ -1,0 +1,185 @@
+/* Button Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+
+  /* Themeable properties */
+  --btn-primary-text-color: white;
+  --btn-danger-text-color: white;
+  --btn-ripple-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  min-height: 32px;
+}
+
+.btn--md {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-base);
+  min-height: 40px;
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--font-size-lg);
+  min-height: 48px;
+}
+
+/* Primary Variant */
+.btn--primary {
+  background: var(--primary-color); /* Changed to use themeable --primary-color */
+  color: var(--btn-primary-text-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover:not(.btn--disabled) {
+  /* For hover, we'd ideally use a slightly darker shade of --primary-color.
+     Let's use filter brightness for now, or define a --primary-color-hover variable later. */
+  background: var(--primary-color);
+  filter: brightness(0.9);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--primary:active:not(.btn--disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Secondary Variant */
+.btn--secondary {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--secondary:hover:not(.btn--disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--border-secondary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--secondary:active:not(.btn--disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Tertiary Variant */
+.btn--tertiary {
+  background: transparent;
+  color: var(--color-primary-600);
+  border: none;
+}
+
+.btn--tertiary:hover:not(.btn--disabled) {
+  background: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+[data-mode="dark"] .btn--tertiary:hover:not(.btn--disabled) {
+  background: var(--color-primary-900);
+  color: var(--color-primary-300);
+}
+
+.btn--tertiary:active:not(.btn--disabled) {
+  background: var(--color-primary-100);
+}
+
+[data-mode="dark"] .btn--tertiary:active:not(.btn--disabled) {
+  background: var(--color-primary-800);
+}
+
+/* Danger Variant */
+.btn--danger {
+  background: linear-gradient(135deg, var(--color-error-500), var(--color-error-600));
+  color: var(--btn-danger-text-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--danger:hover:not(.btn--disabled) {
+  background: linear-gradient(135deg, var(--color-error-600), var(--color-error-700));
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn--danger:active:not(.btn--disabled) {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled State */
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Loading State */
+.btn--loading {
+  cursor: wait;
+}
+
+.btn__spinner {
+  width: 1em;
+  height: 1em;
+  animation: spin 1s linear infinite;
+}
+
+.btn__content {
+  transition: opacity var(--transition-fast);
+}
+
+.btn__content--loading {
+  opacity: 0.7;
+}
+
+/* Ripple Effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--btn-ripple-color);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.btn:active:not(.btn--disabled)::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Dark theme adjustments */
+[data-mode="dark"] .btn--secondary {
+  background: var(--surface-primary);
+  border-color: var(--border-primary);
+}
+
+[data-mode="dark"] .btn--tertiary {
+  color: var(--color-primary-400);
+}

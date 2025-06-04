@@ -1,0 +1,66 @@
+/* Theme Selector Panel - Floating Icons */
+.theme-selector-panel {
+  position: fixed;
+  bottom: var(--space-6); /* Adjust as needed */
+  right: var(--space-6);  /* Adjust as needed */
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  background-color: var(--surface-elevated); /* Use a slightly elevated surface */
+  border-radius: var(--radius-full); /* Make it a rounded lozenge or circle if only one button */
+  box-shadow: var(--shadow-lg); /* Give it a noticeable shadow to float */
+  z-index: var(--z-popover); /* Ensure it's above most content */
+  transition: background-color var(--transition-normal);
+}
+
+/* Styling for the individual icon buttons */
+.theme-selector__cycle-theme-btn,
+.theme-selector__mode-toggle-btn {
+  padding: var(--space-2); /* Make buttons a bit larger for touch */
+  border-radius: var(--radius-full); /* Circular buttons */
+  background-color: var(--surface-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;  /* Fixed size for icon buttons */
+  height: 40px; /* Fixed size for icon buttons */
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-selector__cycle-theme-btn:hover,
+.theme-selector__mode-toggle-btn:hover {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
+  transform: translateY(-1px);
+}
+
+.theme-selector__cycle-theme-btn:active,
+.theme-selector__mode-toggle-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+/* Remove default button component padding if it's too much,
+   as we're setting fixed size. The .btn class might add its own.
+   If Button component uses .btn, these might need to override .btn's padding.
+   Alternatively, the Button component could have a specific "icon-only" variant.
+   For now, assuming the padding: var(--space-2) above is sufficient.
+*/
+
+/* Hide any potential text labels if Button component adds them by default */
+/* .theme-selector__cycle-theme-btn span,
+.theme-selector__mode-toggle-btn span {
+  display: none;
+} */
+
+/* Ensure icons within buttons are visible */
+.theme-selector__cycle-theme-btn svg,
+.theme-selector__mode-toggle-btn svg {
+  stroke: var(--text-primary); /* Directly use a theme variable for strong contrast */
+  fill: none; /* Ensure no fill is obscuring stroke-based icons */
+  width: 18px;
+  height: 18px;
+}

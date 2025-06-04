@@ -1,0 +1,107 @@
+/* Card Component Styles */
+.card {
+  background: var(--surface-primary);
+  /* Apply backdrop-filter if the surface is supposed to be glassmorphic */
+  /* This will be active when --surface-backdrop-blur is > 0px */
+  backdrop-filter: blur(var(--surface-backdrop-blur));
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+
+  /* Themeable properties */
+  --card-highlight-color: var(--color-primary-200);
+}
+
+/* Variants */
+.card--default {
+  border: 1px solid var(--border-primary);
+}
+
+.card--elevated {
+  box-shadow: var(--surface-inner-shadow, inset 0 0 0 transparent), var(--shadow-md);
+  border: 1px solid transparent;
+}
+
+.card--outlined {
+  border: 2px solid var(--border-secondary);
+}
+
+/* Padding */
+.card--padding-sm {
+  padding: var(--space-3);
+}
+
+.card--padding-md {
+  padding: var(--space-4);
+}
+
+.card--padding-lg {
+  padding: var(--space-6);
+}
+
+/* Interactive */
+.card--interactive {
+  cursor: pointer;
+}
+
+.card--interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--surface-inner-shadow, inset 0 0 0 transparent), var(--shadow-lg);
+}
+
+.card--interactive:active {
+  transform: translateY(-1px);
+  box-shadow: var(--surface-inner-shadow, inset 0 0 0 transparent), var(--shadow-md);
+}
+
+/* Focus state for accessibility */
+.card--interactive:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Dark theme adjustments */
+[data-mode="dark"] .card {
+  background: var(--surface-primary);
+}
+
+[data-mode="dark"] .card--default {
+  border-color: var(--border-primary);
+}
+
+[data-mode="dark"] .card--outlined {
+  border-color: var(--border-secondary);
+}
+
+/* Hover effects for elevated cards */
+.card--elevated:hover {
+  box-shadow: var(--surface-inner-shadow, inset 0 0 0 transparent), var(--shadow-xl);
+}
+
+/* Special effects */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-highlight-color), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.card--interactive:hover::before {
+  opacity: 1;
+}
+
+[data-mode="dark"].card { /* Specificity: ensure this applies correctly if .card also has [data-mode="dark"] */
+  --card-highlight-color: var(--color-primary-700);
+}
+
+/*
+  The ::before rule for dark theme is no longer needed here as it's handled
+  by the --card-highlight-color variable being redefined in the [data-theme="dark"] .card scope.
+  We'll remove the specific [data-theme="dark"] .card::before rule.
+*/

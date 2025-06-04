@@ -1,0 +1,33 @@
+/* Logo Component Specific Styles */
+
+/* 
+  The main styling for the logo (colors, gradients) is currently controlled 
+  by CSS variables defined in Navigation.css and consumed directly by the SVG in Logo.tsx.
+  This file can be used for additional layout or specific styles for the logo component 
+  if it's used in other contexts or needs further refinement.
+*/
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3); /* Matches original gap in Navigation.tsx */
+  text-decoration: none;
+  color: var(--text-primary); /* Matches original color in Navigation.css */
+}
+
+.logo__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo__text-wrapper {
+  font-size: var(--font-size-lg); /* Matches original font-size */
+  font-weight: var(--font-weight-bold); /* Matches original font-weight */
+  /* The gradient text effect is applied via CSS variables in Navigation.css */
+  background: linear-gradient(135deg, var(--logo-text-gradient-start), var(--logo-text-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for text color if gradient fails, ensures it's not black */
+}

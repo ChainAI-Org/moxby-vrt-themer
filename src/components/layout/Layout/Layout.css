@@ -1,0 +1,118 @@
+/* Layout Component Styles */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* position: relative; and isolation: isolate; removed */
+}
+
+.layout__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden; /* To contain decorative shapes */
+}
+
+/* Ensure proper spacing and flow */
+.layout__main > * {
+  flex-shrink: 0;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus management for skip links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary-600);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  z-index: var(--z-tooltip);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Print styles */
+@media print {
+  .layout {
+    min-height: auto;
+  }
+  
+  .navigation,
+  .footer {
+    display: none;
+  }
+  
+  .layout__main {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Glassmorphic Theme Decorative Shapes */
+[data-theme-name="glassmorphic"] .decorative-shape {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1; /* Corrected: Ensure it's behind the content within .layout__main */
+  pointer-events: none; /* Make sure they don't interfere with clicks */
+}
+
+[data-theme-name="glassmorphic"] .decorative-shape--1 {
+  width: 95vmax;
+  height: 95vmax;
+  background: radial-gradient(circle, hsla(203, 97%, 73%, 0.3) 0%, hsla(203, 97%, 73%, 0.1) 70%);
+  top: -45vh;
+  left: -65vmax;
+  filter: blur(1px); /* Reduced blur */
+}
+
+[data-theme-name="glassmorphic"] .decorative-shape--2 {
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(circle, hsla(270, 97%, 85%, 0.35) 0%, hsla(270, 97%, 85%, 0.1) 70%);
+  bottom: -30vh;
+  right: -30vmax;
+  filter: blur(1px); /* Reduced blur */
+}
+
+/* Dark Mode specific overrides for Glassmorphic decorative shapes */
+[data-theme-name="glassmorphic"][data-mode="dark"] .decorative-shape {
+
+}
+
+[data-theme-name="glassmorphic"][data-mode="dark"] .decorative-shape--1 {
+  width: 60vmax;
+  height: 60vmax;
+  background: radial-gradient(ellipse at center,
+    hsla(190, 80%, 55%, 0.4) 0%,  /* Brighter Teal center */
+    hsla(220, 70%, 30%, 0.25) 40%, /* Mid Blue */
+    hsla(260, 70%, 20%, 0.1) 70%  /* Deep Purple edge, more transparent */
+  );
+  top: -20vh;
+  left: -30vmax;
+  filter: blur(4px); /* Soft, large glow for dark mode */
+}
+
+[data-theme-name="glassmorphic"][data-mode="dark"] .decorative-shape--2 {
+  width: 45vmax;
+  height: 45vmax;
+  background: radial-gradient(ellipse at center,
+    hsla(270, 80%, 60%, 0.45) 0%,  /* Vibrant Purple center */
+    hsla(300, 70%, 40%, 0.25) 40%, /* Magenta */
+    hsla(220, 70%, 25%, 0.1) 70%  /* Deep Blue edge, more transparent */
+  );
+  bottom: -25vh;
+  right: -25vmax;
+  filter: blur(2px); /* Soft, large glow for dark mode */
+}
