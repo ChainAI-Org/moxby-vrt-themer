@@ -167,6 +167,34 @@ function MyComponent() {
 }
 ```
 
+### Setting a Theme
+
+The `activeThemeName` will be applied as a `data-theme-name` attribute to the `<html>` element, and the `currentMode` ('light' or 'dark') will be applied as a `data-mode` attribute. These attributes are used by the CSS to apply the correct styling.
+
+If you want to set a specific theme and mode as the default when the application loads, you can modify the constants at the top of the [`src/hooks/useTheme.ts`](src/hooks/useTheme.ts:1) file:
+
+```typescript
+// src/hooks/useTheme.ts
+import { useState, useEffect, useCallback } from 'react';
+import { ThemeName, SystemTheme } from '../types';
+
+const DEFAULT_THEME_NAME: ThemeName = 'glassmorphic'; // Change 'glassmorphic' to your desired default theme
+const DEFAULT_MODE: SystemTheme['mode'] = 'light'; // Change 'light' to 'dark' if needed
+
+// ... rest of the hook
+```
+
+1.  Open [`src/hooks/useTheme.ts`](src/hooks/useTheme.ts:1).
+2.  Locate the `DEFAULT_THEME_NAME` constant. Change its value from `'glassmorphic'` (or the current default) to one of the available `ThemeName` options:
+    *   `'glassmorphic'`
+    *   `'tech-focused'`
+    *   `'bold-vibrant'`
+    *   `'corporate-professional'`
+    *   `'default'`
+3.  Locate the `DEFAULT_MODE` constant. Change its value to `'light'` or `'dark'` as per your preference for the default mode.
+
+This will ensure that your chosen theme and mode are applied when a user first visits the application or when no theme preferences are found in their local storage.
+
 ### Customization
 Modify design tokens in `src/styles/tokens.css`:
 
